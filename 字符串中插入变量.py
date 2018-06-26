@@ -6,9 +6,9 @@ nu = '3'
 s = '{name} has {nu} messages?'
 
 s.fotmat_map(vars())
-
+###vars()变量域
 class Info:
-  def __init__(self,name,nu)L
+  def __init__(self,name,nu):
     self.name=name
     self.nu=nu
     
