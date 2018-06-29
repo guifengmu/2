@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 #-*- coding: utf-8 -*-
+#发件人 -> MUA -> MTA -> MTA -> 若干个MTA -> MDA <- MUA <- 收件人
+#编写MUA把邮件发到MTA；
+#编写MUA从MDA上收邮件。
+
 
 from smtplib import SMTP as smtp
 
