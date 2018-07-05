@@ -13,7 +13,7 @@ def refill():
 	lock.acquire() 
 	print('Refilling candy...')
 	try:
-		candytray.release() 
+		candytray.release() #信号，压入资源
 
 		print('OK')
 	except ValueError:
@@ -24,7 +24,7 @@ def refill():
 def buy():
 	lock.acquire()
 	print('Buying candy...')
-	if candytray.acquire(False):
+	if candytray.acquire(False):#信号，弹出资源
 		print('Ok')
 	else:
 		print('empty,skiping')
