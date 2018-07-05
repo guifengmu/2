@@ -15,15 +15,19 @@ loops=(randrange(2,5) for x in range(randrange(3,7)))
 remaining = CleanOutSet()
 def loop(nsec):
 	myname = currentThread().name
+	#上锁
 	lock.acquire()
 	remaining.add(myname)
 	print('[%s] Started %s' % (ctime(),myname))
+	#开锁
 	lock.release()
 	sleep(nsec)
+	#上锁
 	lock.acquire()
 	remaining.remove(myname)
 	print('[%s] Completed %s (%d)secs' % (ctime(),myname,nsec))
 	print('  (remaining:%s)'% (remaining or 'NONE'))
+	#开锁
 	lock.release()
 def _main():
 	for pause in loops:
